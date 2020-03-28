@@ -49,5 +49,6 @@ public class MyMain {
 
         System.out.println("Data after deleting records");
         myCircularQueue.traverseQueue();
+
     }
 }
