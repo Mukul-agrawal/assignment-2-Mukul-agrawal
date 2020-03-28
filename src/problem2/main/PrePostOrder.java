@@ -29,4 +29,12 @@ public class PrePostOrder {
             }
         }
     }
+
+    void traversePostOrder(TreeNode node) {
+        if (node != null) {
+            traversePostOrder(node.getLeft());
+            traversePostOrder(node.getRight());
+            System.out.println(node.getData() + " ");
+        }
+    }
 }
