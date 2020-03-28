@@ -1,6 +1,11 @@
 package problem3.student;
 
 public class Student {
+    @Override
+    public String toString() {
+        return rollNumber + "." + name;
+    }
+
     public int getRollNumber() {
         return rollNumber;
     }
