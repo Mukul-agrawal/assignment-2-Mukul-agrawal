@@ -14,5 +14,10 @@ import problem3.student.Student;
 public class MyMain {
     public static void main(String[] args) {
         MyPriorityQueue<Student> myPriorityQueue = new MyPriorityQueue<>();
+        myPriorityQueue.add(new Student(1, "Rajat"));
+        myPriorityQueue.add(new Student(5, "Aman"));
+        myPriorityQueue.add(new Student(3, "Krishna"));
+        myPriorityQueue.add(new Student(2, "Rajesh"));
+        System.out.println(myPriorityQueue);
     }
 }

@@ -19,7 +19,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
         if (index < 0 && index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
         } else {
-            for (int i = 0; i < index && front != null; i++) {
+            for (int i = 1; i < index && front != null; i++) {
                 response = response.getNext();
 
             }
@@ -30,8 +30,8 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     private void sortedAdd(E data) {
         Node<E> node = new Node<>(data);
         for (int i = 0; i < size; i++) {
-            Node<E> node1 = getNode(size - 1);
-            if (node.getNext().equals(node1.getData())) {
+            Node<E> node1 = getNode(size - i);
+            if (node.getData().equals(node1.getData())) {
                 node.setNext(node1.getNext());
                 node1.setNext(node);
             } else
@@ -75,7 +75,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
         for (int i = 0; i < size && temp != null; i++) {
             E data = temp.getData();
             stringBuilder.append(data);
-            stringBuilder.append((i < size - 1) ? ",\n" : "");
+            stringBuilder.append((i < size - 1) ? "," : "");
             temp = temp.getNext();
         }
         stringBuilder.append("]");
