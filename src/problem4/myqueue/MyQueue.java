@@ -9,4 +9,5 @@ package problem4.myqueue;
 
 public class MyQueue {
     private Node front, end, temp;
+    private int size;
 }
