@@ -27,4 +27,8 @@ public class MyQueue {
         queue.temp = queue.front;
         return size++;
     }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 }
