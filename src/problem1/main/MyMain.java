@@ -12,9 +12,10 @@ import problem1.mybst.MyBinarySearchTree;
 public class MyMain {
     public static void main(String[] args) {
         MyBinarySearchTree<Integer> myBinarySearchTree = new MyBinarySearchTree<>();
+        myBinarySearchTree.add(100);
         myBinarySearchTree.add(50);
         myBinarySearchTree.add(200);
-        myBinarySearchTree.add(100);
+        myBinarySearchTree.add(25);
         myBinarySearchTree.add(75);
         myBinarySearchTree.add(150);
         myBinarySearchTree.add(300);
@@ -24,6 +25,7 @@ public class MyMain {
         myBinarySearchTree.add(250);
         myBinarySearchTree.add(275);
         myBinarySearchTree.print();
+        System.out.println("Number of nodes who does not have a left Child : " + myBinarySearchTree.numberOfLeftChild);
 
     }
 

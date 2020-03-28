@@ -12,7 +12,7 @@ import problem1.node.TreeNode;
 public class MyBinarySearchTree<E> implements MyBinarysearchTreeADT<E> {
     public int numberOfLeftChild = 0;
     private TreeNode<E> root;
-    private int maxLevel;
+    private int maxLevel = 0;
 
     public TreeNode<E> getRoot() {
         return root;
@@ -20,7 +20,8 @@ public class MyBinarySearchTree<E> implements MyBinarysearchTreeADT<E> {
 
     @Override
     public boolean add(E data) {
-        return false;
+        root = addRecursive(root, data);
+        return true;
     }
 
     private TreeNode<E> addRecursive(TreeNode<E> currentNode, E data) {
