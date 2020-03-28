@@ -8,6 +8,16 @@ package problem4.myqueue;
 // to create queue to store pre - order successor
 
 public class MyQueue {
+    private Node front, end, temp;
+    private int size;
+
+    public MyQueue() {
+        front = null;
+        end = null;
+        temp = null;
+        size = 0;
+    }
+
     public Node getFront() {
         return front;
     }
@@ -32,16 +42,6 @@ public class MyQueue {
         this.temp = temp;
     }
 
-    private Node front, end, temp;
-    private int size;
-
-    public MyQueue() {
-        front = null;
-        end = null;
-        temp = null;
-        size = 0;
-    }
-
     public int getSize(MyQueue queue) {
         queue.temp = queue.front;
         while (queue.temp != null) {
@@ -54,5 +54,14 @@ public class MyQueue {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public void queuePrint(MyQueue queue) {
+        while (queue.temp != null) {
+            System.out.print(queue.temp.getNode().getData() + ",");
+            queue.temp = queue.temp.getNext();
+        }
+        System.out.println("\b");
+        queue.temp = queue.front;
     }
 }
