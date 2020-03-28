@@ -5,9 +5,6 @@
  *  Time: 7:11 PM
  */
 package problem4.myqueue;
-// to create queue to store pre - order successor
-
-import problem2.main.TreeNode;
 
 public class MyQueue {
     private Node front, end, temp;
