@@ -36,4 +36,13 @@ public class Student {
         this.backlog = backlog;
     }
 
+    @Override
+    public String toString() {
+        return "---------------------------------------" + "\n" +
+                "Name -- " + getName() + "\n" +
+                "Roll Number -- " + getRollNo() + "\n" +
+                "Back Log Value -- " + getBacklog() + "\n" +
+                "---------------------------------------";
+    }
+
 }
