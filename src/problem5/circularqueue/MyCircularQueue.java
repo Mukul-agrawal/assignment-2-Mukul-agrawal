@@ -48,4 +48,19 @@ public class MyCircularQueue {
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
     }
+
+    public void remove(String name) {
+        temp = front;
+        if (temp.getStudent().getName().equals(name) && temp.getStudent().getBacklog() == 0) {
+            temp = front = front.getNext();
+        }
+        while (!temp.getNext().getStudent().equals(name)) {
+            temp = temp.getNext();
+            if (temp == front)
+                return;
+        }
+        if (temp.getStudent().getBacklog() == 0) {
+            temp.setNext(temp.getNext().getNext());
+        }
+    }
 }
