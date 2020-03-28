@@ -22,7 +22,7 @@ public class Student {
         this.rollNo = scanner.nextInt();
         System.out.print("Backlog_Count : ");
         this.backlog = scanner.nextInt();
-        System.out.print("Appearing_Count");
+        System.out.print("Appearing_Count : ");
         this.appearingCount = scanner.nextInt();
     }
 
@@ -58,10 +58,6 @@ public class Student {
         this.appearingCount = appearingCount;
     }
 
-    public Scanner getScanner() {
-        return scanner;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
@@ -69,7 +65,6 @@ public class Student {
                 ", rollNo=" + rollNo +
                 ", backlog=" + backlog +
                 ", appearingCount=" + appearingCount +
-                ", scanner=" + scanner +
                 '}';
     }
 }

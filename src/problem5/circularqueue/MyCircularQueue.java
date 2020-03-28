@@ -66,7 +66,7 @@ public class MyCircularQueue {
         if (temp.getStudent().getName().equals(name) && temp.getStudent().getBacklog() == 0) {
             temp = front = front.getNext();
         }
-        while (!temp.getNext().getStudent().equals(name)) {
+        while (!temp.getNext().getStudent().getName().equals(name)) {
             temp = temp.getNext();
             if (temp == front)
                 return;
