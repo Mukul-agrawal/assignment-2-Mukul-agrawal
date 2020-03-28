@@ -62,5 +62,14 @@ public class Student {
         return scanner;
     }
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", rollNo=" + rollNo +
+                ", backlog=" + backlog +
+                ", appearingCount=" + appearingCount +
+                ", scanner=" + scanner +
+                '}';
+    }
 }
