@@ -10,4 +10,12 @@ public class TreeNode {
         left = null;
         right = null;
     }
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
 }
