@@ -41,6 +41,7 @@ public class MyMain {
 
             numberOfRecords--;
         }
+
         System.out.println("Data before deleting records");
         myCircularQueue.traverseQueue();
 
