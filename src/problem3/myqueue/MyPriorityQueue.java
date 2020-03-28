@@ -12,6 +12,7 @@ import problem3.node.Node;
 public class MyPriorityQueue<E> implements QueueADT<E> {
     private int size = 0;
     private Node<E> front;
+    private Node<E> rear;
     @Override
     public void add(E data) {
 
