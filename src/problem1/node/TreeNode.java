@@ -9,6 +9,12 @@ package problem1.node;
 public class TreeNode<E> {
     private E data;
     private TreeNode<E> leftChild;
+
+    public TreeNode(E data) {
+        this.data = data;
+    }
+
     private TreeNode<E> rightChild;
+
 
 }
