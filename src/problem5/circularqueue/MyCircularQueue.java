@@ -76,4 +76,19 @@ public class MyCircularQueue {
         }
     }
 
+    public void process(String name) {
+        temp = front;
+        if (temp.getStudent().getName().equals(name)) {
+            System.out.println(temp.getStudent().toString());
+            System.out.println(temp.getStudent().getBacklog() - temp.getStudent().getAppearingCount());
+        }
+        while (!temp.getStudent().getName().equals(name)) {
+            temp = temp.getNext();
+            if (temp == front)
+                return;
+        }
+        System.out.println(temp.getStudent().toString());
+        System.out.println(temp.getStudent().getBacklog() - temp.getStudent().getAppearingCount());
+    }
+
 }
