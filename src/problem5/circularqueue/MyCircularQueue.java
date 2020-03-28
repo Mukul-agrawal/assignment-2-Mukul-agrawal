@@ -10,12 +10,15 @@ import problem5.node.Node;
 
 //to implement circular queue
 public class MyCircularQueue {
-    private Node front, temp, end;
+    private Node front;
+    private Node rear;
 
-    public MyCircularQueue() {
-        front = null;
-        temp = null;
-        end = null;
+    public Node getRear() {
+        return rear;
+    }
+
+    public void setRear(Node rear) {
+        this.rear = rear;
     }
 
     public Node getFront() {
@@ -26,69 +29,72 @@ public class MyCircularQueue {
         this.front = front;
     }
 
-    public Node getTemp() {
+    public void enQueue(Node newNode) {
+        if (getFront() == null && getRear() == null) {
+            setFront(newNode);
+            setRear(newNode);
+            getRear().setNext(getFront());
+        } else {
+            newNode.setNext(getFront());
+            getRear().setNext(newNode);
+            setRear(getRear().getNext());
+        }
+    }
+
+    public void traverseQueue() {
+        Node temp = getFront();
+
+        while (true) {
+            System.out.println(temp.getStudent());
+            temp = temp.getNext();
+            if (temp == getFront())
+                break;
+        }
+    }
+
+    public Node deQueue() {
+        Node temp;
+        if (getFront() == null) {
+            return null;
+        } else if (getFront() == getRear()) {
+            temp = getFront();
+            setRear(null);
+            setFront(null);
+        } else {
+            temp = getFront();
+            setFront(getFront().getNext());
+            getRear().setNext(getFront());
+        }
         return temp;
     }
 
-    public void setTemp(Node temp) {
-        this.temp = temp;
-    }
-
-    public void enqueue(Node newNode) {
-        if (front == null) {
-            temp = front = newNode;
-            return;
-        }
-        if (temp.getNext() == null) {
-            temp.setNext(newNode);
-            newNode.setNext(temp);
-            end = newNode;
-            return;
-        }
-        newNode.setNext(temp.getNext());
-        temp.setNext(newNode);
-    }
-
-    public void printQueue() {
-        temp = front;
-        try {
-            do {
-                System.out.println(temp.getStudent().toString());
-                temp = temp.getNext();
+    public void removeZeroBacklogRecords() {
+        Node before = getRear();
+        Node ahead = getFront();
+        while (true) {
+            if (ahead.getStudent().getBacklog() == 0) {
+                System.out.println("Removed data --> ");
+                System.out.println(ahead.getStudent());
+                if (ahead == getFront()) {
+                    before.setNext(ahead.getNext());
+                    setFront(getFront().getNext());
+                    ahead = ahead.getNext();
+                    continue;
+                } else if (ahead == getRear()) {
+                    before.setNext(ahead.getNext());
+                    setRear(before);
+                    break;
+                } else {
+                    before.setNext(ahead.getNext());
+                    ahead = ahead.getNext();
+                }
+            } else {
+                ahead = ahead.getNext();
+                before = before.getNext();
             }
-            while (temp != front && temp != null);
-        } catch (NullPointerException E) {
+            if (ahead == getFront())
+                break;
         }
-    }
-
-    public void remove(String name) {
-        temp = front;
-        if (temp.getStudent().getName().equals(name) && temp.getStudent().getBacklog() == 0) {
-            temp = front = front.getNext();
-        }
-        while (!temp.getNext().getStudent().getName().equals(name)) {
-            temp = temp.getNext();
-            if (temp == front)
-                return;
-        }
-        if (temp.getStudent().getBacklog() == 0) {
-            temp.setNext(temp.getNext().getNext());
-        }
-    }
-
-    public void process(String name) {
-        temp = front;
-        if (temp.getStudent().getName().equals(name)) {
-            System.out.println(temp.getStudent().toString());
-            System.out.println(temp.getStudent().getBacklog() - temp.getStudent().getAppearingCount());
-        }
-        while (!temp.getStudent().getName().equals(name)) {
-            temp = temp.getNext();
-            if (temp == front)
-                return;
-        }
-        System.out.println(temp.getStudent().toString());
-        System.out.println(temp.getStudent().getBacklog() - temp.getStudent().getAppearingCount());
     }
 
 }
