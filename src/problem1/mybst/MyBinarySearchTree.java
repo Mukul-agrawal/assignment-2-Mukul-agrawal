@@ -33,4 +33,20 @@ public class MyBinarySearchTree<E> implements MyBinarysearchTreeADT<E> {
         }
         return currentNode;
     }
+
+    private void printLeftChild(TreeNode<E> node, int level) {
+        if (node == null) {
+            return;
+        }
+        if (maxLevel < level) {
+            System.out.println(node.getData() + " ");
+        }
+        maxLevel = level;
+        if ((node.getLeftChild() == null)) {
+            numberOfLeftChild++;
+            maxLevel++;
+        }
+        printLeftChild(node.getLeftChild(), level + 1);
+        printLeftChild(node.getRightChild(), level + 1);
+    }
 }
