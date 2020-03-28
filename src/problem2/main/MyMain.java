@@ -8,14 +8,14 @@ package problem2.main;
 public class MyMain {
     public static void main(String[] args) {
         PrePostOrder prePostOrder = new PrePostOrder();
-        prePostOrder.insert(40);
-        prePostOrder.insert(50);
-        prePostOrder.insert(30);
         prePostOrder.insert(35);
-        prePostOrder.insert(100);
-        prePostOrder.insert(90);
-        prePostOrder.insert(12);
         prePostOrder.insert(34);
+        prePostOrder.insert(12);
+        prePostOrder.insert(40);
+        prePostOrder.insert(90);
+        prePostOrder.insert(100);
+        prePostOrder.insert(30);
+        prePostOrder.insert(50);
         System.out.println("PreOrder traverse :");
         prePostOrder.traversePreOrder(prePostOrder.getRoot());
         System.out.println();
